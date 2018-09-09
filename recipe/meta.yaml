@@ -1,5 +1,4 @@
-{% set version = '1.9.1' %}
-
+{% set version = '1.12.1' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,52 +9,61 @@ package:
 source:
   fn: pROC_{{ version }}.tar.gz
   url:
-    - https://cran.r-project.org/src/contrib/pROC_{{ version }}.tar.gz
-    - https://cran.r-project.org/src/contrib/Archive/pROC/pROC_{{ version }}.tar.gz
-  sha256: f8c2d1ba4d6cfc9ff62f219528477a41ebcdbb6fe436caa514c5e7a909e685b9
+    - {{ cran_mirror }}/src/contrib/pROC_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/pROC/pROC_{{ version }}.tar.gz
+  sha256: 9266a7d857313e36f86ad2a7e7b0d95240960a26707036409ac9776754324d15
 
 build:
   merge_build_host: True  # [win]
-  number: 1
+  number: 0
   skip: true  # [win32]
-
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
   build:
-    - posix                # [win]
-    - {{ compiler('c') }}        # [unix]
-    - {{ compiler('m2w64_c') }}  # [win]
-    - {{ compiler('cxx') }}        # [unix]
-    - {{ compiler('m2w64_cxx') }}  # [win]
+    - {{ compiler('c') }}        # [not win]
+    - {{ compiler('cxx') }}      # [not win]
+    - {{native}}toolchain        # [win]
+    - {{posix}}filesystem        # [win]
+    - {{posix}}make
+    - {{posix}}sed               # [win]
+    - {{posix}}coreutils         # [win]
+    - {{posix}}zip               # [win]
   host:
     - r-base
     - r-rcpp >=0.11.1
+    - r-ggplot2
     - r-plyr
-
   run:
     - r-base
+    - {{native}}gcc-libs         # [win]
     - r-rcpp >=0.11.1
+    - r-ggplot2
     - r-plyr
 
 test:
   commands:
-    - $R -e "library('pROC')"  # [not win]
+    - $R -e "library('pROC')"           # [not win]
     - "\"%R%\" -e \"library('pROC')\""  # [win]
 
 about:
   home: http://expasy.org/tools/pROC/
   license: GPL (>= 3)
-  summary: |
-    Tools for visualizing, smoothing and comparing receiver operating characteristic (ROC
+  summary: Tools for visualizing, smoothing and comparing receiver operating characteristic (ROC
     curves). (Partial) area under the curve (AUC) can be compared with statistical tests
     based on U-statistics or bootstrap. Confidence intervals can be computed for (p)AUC
     or ROC curves.
   license_family: GPL3
+  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'  # [unix]
+  license_file: '{{ environ["PREFIX"] }}\R\share\licenses\GPL-3'  # [win]
 
 extra:
   recipe-maintainers:
     - johanneskoester
     - bgruening
+    - daler
+    - jdblischak
+    - cbrueffer
+    - dbast
