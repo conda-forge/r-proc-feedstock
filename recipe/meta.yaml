@@ -1,4 +1,4 @@
-{% set version = '1.15.0' %}
+{% set version = '1.15.3' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,21 +10,21 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/pROC_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/pROC/pROC_{{ version }}.tar.gz
-  sha256: 44d471968322ef547e3ee175576f8174969a727eaf3082ed17d2ba0e1b9fbdb7
+  sha256: b010988a646a642657ec72d908c2e0ca2f9df0898c05b9f1f5ab6b739353a8cb
 
 build:
   merge_build_host: True  # [win]
-  number: 1
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
   build:
-    - {{ compiler('c') }}        # [not win]
-    - {{ compiler('cxx') }}      # [not win]
+    - {{ compiler('c') }}              # [not win]
     - {{ compiler('m2w64_c') }}        # [win]
-    - {{ compiler('m2w64_cxx') }}        # [win]
+    - {{ compiler('cxx') }}            # [not win]
+    - {{ compiler('m2w64_cxx') }}      # [win]
     - {{posix}}filesystem        # [win]
     - {{posix}}make
     - {{posix}}sed               # [win]
@@ -47,13 +47,14 @@ test:
 
 about:
   home: http://expasy.org/tools/pROC/
-  license: GPL (>= 3)
+  license: GPL-3
   summary: Tools for visualizing, smoothing and comparing receiver operating characteristic (ROC
     curves). (Partial) area under the curve (AUC) can be compared with statistical tests
     based on U-statistics or bootstrap. Confidence intervals can be computed for (p)AUC
     or ROC curves.
   license_family: GPL3
-  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
+  license_file:
+    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
 
 extra:
   recipe-maintainers:
@@ -62,8 +63,8 @@ extra:
 # Package: pROC
 # Type: Package
 # Title: Display and Analyze ROC Curves
-# Version: 1.15.0
-# Date: 2019-06-01
+# Version: 1.15.3
+# Date: 2019-07-21
 # Encoding: UTF-8
 # Depends: R (>= 2.14)
 # Imports: methods, plyr, Rcpp (>= 0.11.1)
@@ -74,10 +75,10 @@ extra:
 # License: GPL (>= 3)
 # URL: http://expasy.org/tools/pROC/
 # BugReports: https://github.com/xrobin/pROC/issues
-# LazyLoad: yes
+# LazyData: yes
 # NeedsCompilation: yes
-# Packaged: 2019-06-01 07:44:22 UTC; xavier
+# Packaged: 2019-07-21 08:43:05 UTC; xavier
 # Author: Xavier Robin [cre, aut] (<https://orcid.org/0000-0002-6813-3200>), Natacha Turck [aut], Alexandre Hainard [aut], Natalia Tiberti [aut], Frederique Lisacek [aut], Jean-Charles Sanchez [aut], Markus Muller [aut], Stefan Siegert [ctb] (Fast DeLong code), Matthias Doering [ctb] (Hand & Till Multiclass)
 # Maintainer: Xavier Robin <pROC-cran@xavier.robin.name>
 # Repository: CRAN
-# Date/Publication: 2019-06-01 09:00:03 UTC
+# Date/Publication: 2019-07-21 22:40:02 UTC
