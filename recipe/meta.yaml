@@ -1,4 +1,4 @@
-{% set version = '1.15.3' %}
+{% set version = "1.16.0" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/pROC_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/pROC/pROC_{{ version }}.tar.gz
-  sha256: b010988a646a642657ec72d908c2e0ca2f9df0898c05b9f1f5ab6b739353a8cb
+  sha256: f45093860307083c7ad8c1735c8c81bb7169996b2938d3d685628f57646828ba
 
 build:
   merge_build_host: True  # [win]
