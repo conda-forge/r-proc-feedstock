@@ -47,7 +47,7 @@ test:
 
 about:
   home: http://expasy.org/tools/pROC/
-  license: GPL-3
+  license: GPL-3.0
   summary: Tools for visualizing, smoothing and comparing receiver operating characteristic (ROC curves). (Partial) area under the curve (AUC) can be compared with
     statistical tests based on U-statistics or bootstrap. Confidence intervals can be computed for (p)AUC or ROC curves.
   license_family: GPL3
