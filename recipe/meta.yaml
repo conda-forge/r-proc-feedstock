@@ -1,4 +1,4 @@
-{% set version = "1.16.2" %}
+{% set version = "1.17.0.1" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/pROC_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/pROC/pROC_{{ version }}.tar.gz
-  sha256: b68b960ed9a2cdea7976943649082c3945e370d14115b7adbce440fc7f51fc2a
+  sha256: 221c726ffb81b04b999905effccfd3a223cd73cae70d7d86688e2dd30e51a6bd
 
 build:
   merge_build_host: true  # [win]
-  number: 1
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
@@ -48,8 +48,7 @@ test:
 about:
   home: http://expasy.org/tools/pROC/
   license: GPL-3.0
-  summary: Tools for visualizing, smoothing and comparing receiver operating characteristic (ROC curves). (Partial) area under the curve (AUC) can be compared with
-    statistical tests based on U-statistics or bootstrap. Confidence intervals can be computed for (p)AUC or ROC curves.
+  summary: Tools for visualizing, smoothing and comparing receiver operating characteristic (ROC curves). (Partial) area under the curve (AUC) can be compared with statistical tests based on U-statistics or bootstrap. Confidence intervals can be computed for (p)AUC or ROC curves.
   license_family: GPL3
   license_file:
     - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
