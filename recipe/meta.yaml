@@ -1,4 +1,4 @@
-{% set version = "1.18.0" %}
+{% set version = "1.18.2" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/pROC_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/pROC/pROC_{{ version }}.tar.gz
-  sha256: d5ef54b384176ece6d6448014ba40570a98181b58fee742f315604addb5f7ba9
+  sha256: 1f82eaa26736ddb31ca89ac8e0473ec480d5b6835598e6fbb1ee5af1c4c60507
 
 build:
   merge_build_host: true  # [win]
-  number: 1
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
