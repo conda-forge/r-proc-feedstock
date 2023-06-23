@@ -11,6 +11,8 @@ Home: http://expasy.org/tools/pROC/
 Package license: GPL-3.0-or-later
 
 Summary: Tools for visualizing, smoothing and comparing receiver operating characteristic (ROC curves). (Partial) area under the curve (AUC) can be compared with statistical tests based on U-statistics or bootstrap. Confidence intervals can be computed for (p)AUC or ROC curves.
+
+Development: https://github.com/xrobin/pROC
 About r-proc
 ------------
 
@@ -19,6 +21,8 @@ Home: http://expasy.org/tools/pROC/
 Package license: GPL-3.0-or-later
 
 Summary: Tools for visualizing, smoothing and comparing receiver operating characteristic (ROC curves). (Partial) area under the curve (AUC) can be compared with statistical tests based on U-statistics or bootstrap. Confidence intervals can be computed for (p)AUC or ROC curves.
+
+Development: https://github.com/xrobin/pROC
 
 Current build status
 ====================
