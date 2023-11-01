@@ -3,6 +3,7 @@ About r-proc-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-proc-feedstock/blob/main/LICENSE.txt)
 
+
 About r-proc
 ------------
 
@@ -13,6 +14,7 @@ Package license: GPL-3.0-or-later
 Summary: Tools for visualizing, smoothing and comparing receiver operating characteristic (ROC curves). (Partial) area under the curve (AUC) can be compared with statistical tests based on U-statistics or bootstrap. Confidence intervals can be computed for (p)AUC or ROC curves.
 
 Development: https://github.com/xrobin/pROC
+
 About r-proc
 ------------
 
